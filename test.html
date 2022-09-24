@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontawesome-free-6.2.0-web\fontawesome-free-6.2.0-web\css\all.min.css">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding:0;
+            margin: 0;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container{
+            width: 500px;
+            display: block;
+            background-color: antiquewhite;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .container h1{
+            padding: 10px;
+            text-align: left;
+            width:100%;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .collection{
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            align-items: flex-start;
+            justify-content: space-between;
+
+        }
+        .collection-item{
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            font-size: 18px;
+            background-color: white;
+            padding: 16px;
+            border-bottom: 2px solid rgb(221, 218, 218);
+            width: 100%;
+        }
+        .delete-item.secondary-content{
+            text-decoration: none;
+            color: red;
+            border: 1px solid black;
+            padding:4px 8px;
+            border-radius: 4px;
+            transition: 0.5s ease-in-out;
+        }
+        .delete-item.secondary-content:hover{
+            border-color: none;
+            background-color: black;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="container">
+            <H1 class="title">Tasks</H1>
+            <ul class="collection">
+                <li class="collection-item">List Item <a href="#" class="delete secondary-content"><i class="fa fa-remove"></i></a></li>
+                <li class="collection-item">List Item <a href="#" class="delete-item secondary-content"><i class="fa fa-remove"></i></a></li>
+                <li class="collection-item">List Item <a href="#" class="delete-item secondary-content"><i class="fa fa-remove"></i></a></li>
+                <li class="collection-item">List Item <a href="#" class="delete-item secondary-content"><i class="fa fa-remove"></i></a></li>
+                <li class="collection-item">List Item <a href="#" class="delete-item secondary-content"><i class="fa fa-remove"></i></a></li>
+            </ul>
+        </div>
+    </form>
+    <script>
+        //create new element
+        const newHead=document.createElement('h1');
+        //add id
+        newHead.className='title';
+        //append text node
+        newHead.appendChild(document.createTextNode('Bucket List'));
+        //get the old element
+        const oldHead=document.querySelector('.title');
+        //get the parent element
+        const Constant=document.querySelector('.container');
+        //replace element
+        Constant.replaceChild(newHead,oldHead);
+        document.querySelector('h1').style.background='blue';
+
+        document.body.addEventListener('click', deleteItem);
+         function deleteItem(e){
+            if(e.target.parentElement.classList.contains('delete-item')){
+                e.target.parentElement.parentElement.remove();
+            }
+            else{
+                e.target.parentElement.parentElement.parentElement.firstElementChild.innerText='Hello';
+            }
+            
+         }
+    </script>
+</body>
+</html>

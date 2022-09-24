@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        .container{
+            position: relative;
+            margin: auto;
+            width: 400px;
+            height:auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 1px 1px 3px green;
+        }
+        span{
+            color: green;
+        }
+        .welcome-text{
+            width:80%;
+            padding: 8px;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        .welcome-text p{
+            font-size: 20px;
+        }
+        .data{
+            margin: auto;
+            width: 80%;
+        }
+        .data label{
+            position: absolute;
+            padding: 4px;
+            color:grey;
+            background-color: transparent;
+        }
+        .data label:hover{
+            transform: translateY(-12px);
+            color:aqua;
+            font-size: 14px;
+        }
+        .data input{
+            width: 100%;
+            padding:8px;
+            margin-bottom: 10px;
+            border: none;
+            border-bottom: 2px solid lightgrey;
+            outline: none;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-text">
+            <p><span>Welcome!</span>Please enter your name and age</p>
+        </div>
+        <div class="my-form">
+            <form>
+                <div class="data">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="name">
+                    
+                </div>
+                <div class="data">
+                    <label for="name">Your Age</label>
+                    <input type="text" name="age" class="name">
+                    
+                </div>
+                <input type="submit" class="btn" value="Submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
