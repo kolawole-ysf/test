@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="author" content="Yusuf Akeem">
+    <title>Voter's Eligibility Check</title>
     <style>
         *{
             padding:0;
             margin: 0;
         }
         .container{
+            top: 200px;
             position: relative;
             margin: auto;
             width: 400px;
@@ -35,17 +37,8 @@
             margin: auto;
             width: 80%;
         }
-        .data label{
-            position: absolute;
-            padding: 4px;
-            color:grey;
-            background-color: transparent;
-        }
-        .data label:hover{
-            transform: translateY(-12px);
-            color:aqua;
-            font-size: 14px;
-        }
+       
+        
         .data input{
             width: 100%;
             padding:8px;
@@ -53,30 +46,81 @@
             border: none;
             border-bottom: 2px solid lightgrey;
             outline: none;
-
         }
+        .btn{
+            margin-left: 40px;
+            outline: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            background-color: green;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .feedback{
+            font-size: 20px;
+            text-align: center;
+            padding: 20px;
+            margin: auto;
+            color: red;
+        }
+       
     </style>
 </head>
 <body>
     <div class="container">
         <div class="welcome-text">
-            <p><span>Welcome!</span>Please enter your name and age</p>
+            <p><span>Welcome! </span>Please enter your name and age</p>
         </div>
         <div class="my-form">
             <form>
                 <div class="data">
-                    <label for="name">Your Name</label>
-                    <input type="text" name="name" class="name">
+                   
+                    <input type="text" name="name" placeholder="Your Name" class="name" required>
                     
                 </div>
                 <div class="data">
-                    <label for="name">Your Age</label>
-                    <input type="text" name="age" class="name">
+                   
+                    <input type="text" name="age" placeholder="Your Age" class="age" required>
                     
                 </div>
                 <input type="submit" class="btn" value="Submit">
             </form>
         </div>
+        <p class="feedback"></p>
     </div>
+    <script>
+        const Name=document.querySelector('.name');
+        const Age=document.querySelector('.age');
+        const Msg=document.querySelector('.feedback');
+        const age=18;
+        
+        document.body.addEventListener('submit',displayOutput)
+
+        function displayOutput(e){
+            const msg=document.createElement('p');
+            if(isNaN(Age.value) || (!(isNaN(Name.value)))){
+                alert('Enter a valid Name and Age')
+               }else if(Age.value<18){
+                msg.innerText='Oops! '+Name.value+' you are not an eligible voter';
+                msg.style.color='red';
+              
+                }else{
+                msg.innerText='Congrats! '+Name.value+' you are an eligible voter';
+                msg.style.color='green';
+            }
+            while(Msg.firstChild!==null){
+                Msg.firstChild.remove();
+
+            }
+            Msg.appendChild(msg);
+            Name.value='';
+            Age.value=''
+            
+
+            e.preventDefault();
+        }
+    </script>
 </body>
 </html>
